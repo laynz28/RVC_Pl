@@ -224,11 +224,11 @@ def download_audio(url):
             'preferredcodec': 'wav',
             'preferredquality': '192',
         }],
-        'outtmpl': 'audios/{audio_name}',
+        'outtmpl': f'audios/{audio_name}',
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
-    return "done ⛈️" 
+    return f"Sucessfully downloaded as {audio_name}.wav"
 
 
 def upload_file(file):
@@ -256,7 +256,7 @@ def refresh():
 def update_audio_player(choice):
     return os.path.join("audios",choice)
 
-with gr.Blocks(theme="Hev832/soft", title="RVC DEMO") as app:
+with gr.Blocks(theme="Hev832/Pl-tme", title="RVC DEMO") as app:
     with gr.Row():
         with gr.Column():
             gr.Markdown("# RVC Pl ⛈️")
