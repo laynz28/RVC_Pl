@@ -254,7 +254,7 @@ def download_audio(url, audio_name):
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
-    return  
+    return "saved as audios/{audio_name}"
 
 
 
@@ -269,11 +269,11 @@ with gr.Blocks(theme='Hev832/soft') as app:
     with gr.Row():
         with gr.Column():
             with gr.Tabs():
-                with gr.TabItem("1.Choose a voice model:"):
+                with gr.TabItem("Choose a voice model"):
                     model_picker = gr.Dropdown(label="Model: ",choices=show_available('assets/weights','.pth'),value=show_available('assets/weights','.pth'),interactive=True,allow_custom_value=True)
                     index_picker = gr.Dropdown(label="Index:",interactive=True,choices=show_available('logs'),value=show_available('logs'),allow_custom_value=True)
                     model_picker.change(fn=load_model,inputs=[model_picker,index_picker],outputs=[index_picker])
-                with gr.TabItem("(Or download a model here)"):
+                with gr.TabItem("download a model here"):
                     with gr.Row():
                         url = gr.Textbox(label="Paste the URL here:",value="",placeholder="(i.e. https://huggingface.co/repo/model/resolve/main/model.zip)")
                     with gr.Row():
@@ -286,7 +286,7 @@ with gr.Blocks(theme='Hev832/soft') as app:
                         selected_import = gr.Dropdown(choices=list(models.keys()),label="OR Search Models (Quality UNKNOWN)",scale=5)
                         import_model = gr.Button("Download")
                         import_model.click(fn=import_from_name,inputs=[selected_import],outputs=[selected_import,model_picker])
-                with gr.TabItem("Advanced"):
+                with gr.TabItem("Advanced option"):
                     index_rate = gr.Slider(label='Index Rate: ',minimum=0,maximum=1,value=0.66,step=0.01)
                     pitch = gr.Slider(label='Pitch (-12 lowers it an octave, 0 keeps the original pitch, 12 lifts it an octave): ',minimum =-12, maximum=12, step=1, value=0, interactive=True)
                     method = gr.Dropdown(label="Method:",choices=["rmvpe","pm"],value="rmvpe")
