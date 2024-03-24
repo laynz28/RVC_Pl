@@ -264,8 +264,8 @@ with gr.Blocks(theme="Hev832/Pl-tme", title="RVC DEMO") as app:
         with gr.Column():
             with gr.Tabs():
                 with gr.TabItem("1.Choose a voice model:"):
-                    model_picker = gr.Dropdown(label="Model: ",choices=show_available('assets/weights','.pth'),value=show_available('assets/weights','.pth')[0],interactive=True,allow_custom_value=True)
-                    index_picker = gr.Dropdown(label="Index:",interactive=True,choices=show_available('logs'),value=show_available('logs')[0],allow_custom_value=True)
+                    model_picker = gr.Dropdown(label="Model: ",choices=show_available('assets/weights','.pth'),value=show_available('assets/weights','.pth')[],interactive=True,allow_custom_value=True)
+                    index_picker = gr.Dropdown(label="Index:",interactive=True,choices=show_available('logs'),value=show_available('logs')[],allow_custom_value=True)
                     model_picker.change(fn=load_model,inputs=[model_picker,index_picker],outputs=[index_picker])
                 with gr.TabItem("(Or download a model here)"):
                     with gr.Row():
