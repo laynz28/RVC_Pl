@@ -228,7 +228,7 @@ def download_audio(url, audio_name):
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
-    return f"saved as {audio_name}.wav"
+    return 
 
 def upload_file(file):
     audio_formats = ['.wav', '.mp3', '.ogg', '.flac', '.aac']
