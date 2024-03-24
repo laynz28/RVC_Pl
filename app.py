@@ -216,7 +216,7 @@ def show_available(filepath,format=None):
     return os.listdir(filepath)
 
 
-def download_audio(url):
+def download_audio(url, audio_name):
     ydl_opts = {
         'format': 'bestaudio/best',
         'postprocessors': [{
@@ -228,8 +228,7 @@ def download_audio(url):
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
-    return f"Sucessfully downloaded as {audio_name}.wav"
-
+    return f"{ydl_opts}"
 
 def upload_file(file):
     audio_formats = ['.wav', '.mp3', '.ogg', '.flac', '.aac']
