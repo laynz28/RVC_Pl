@@ -247,14 +247,14 @@ def download_audio(url, audio_name):
         'format': 'bestaudio/best',
         'postprocessors': [{
             'key': 'FFmpegExtractAudio',
-            'preferredcodec': 'mp3',
+            'preferredcodec': 'wav',
             'preferredquality': '192',
         }],
         'outtmpl': f'audios/{audio_name}',
     }
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
         ydl.download([url])
-    return "saved as audios/{audio_name}"
+    return f"Successfully downloaded as audios/{audio_name}.wav",
 
 
 
@@ -294,7 +294,8 @@ with gr.Blocks(theme='Hev832/soft') as app:
                     url = gr.Textbox(label="youtube url")
                     audio_name = gr.Textbox(label="name url")
                     download_yt = gr.Button(label="download!")
-                    download_yt.click(fn=download_audio,inputs=[url, audio_name],outputs=[audio_name])
+                    trijnd = gr.Textbox(label="outputs")
+                    download_yt.click(fn=download_audio,inputs=[url, audio_name],outputs=[trijnd])
         
     with gr.Row():
         with gr.Tabs():
