@@ -30,6 +30,15 @@ python app.py
 
 
 
+# Credits 
+
+- [yt-dlp](https://github.com/yt-dlp/yt-dlp.git)
+- [RVC_PlayGround](https://huggingface.co/spaces/Rejekts/RVC_PlayGround)
+- [Retrieval-based-Voice-Conversion-WebUI](https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI.git)
+
+
+
+
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
